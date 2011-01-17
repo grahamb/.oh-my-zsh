@@ -1,5 +1,5 @@
 if [[ -n $SSH_CONNECTION ]]; then
-	hn=' %m '
+	hn='%m '
 else
 	hn=''
 fi

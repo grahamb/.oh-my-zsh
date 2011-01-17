@@ -1,5 +1,7 @@
 
 # TextMate
+alias m='mate'
+alias mm='mate . &'
 alias et='mate . &'
 alias ett='mate app config lib db public spec test Rakefile Capfile Todo &'
 alias etp='mate app config lib db public spec test vendor/plugins vendor/gems Rakefile Capfile Todo &'

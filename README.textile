@@ -1,3 +1,5 @@
+bq. This is grahamb's fork of robbyrussell's "oh-my-zsh":https://github.com/robbyrussell/oh-my-zsh
+
 A handful of functions, auto-complete helpers, and stuff that makes you shout...
 
 bq. "OH MY ZSHELL!"
@@ -8,14 +10,14 @@ h2. Setup
 
 h3. The automatic installer... (do you trust me?)
 
-@wget http://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh@
+@wget http://github.com/grahamb/oh-my-zsh/raw/master/tools/install.sh -O - | sh@
 
 h3. The manual way
 
 
 1. Clone the repository
 
-  @git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh@
+  @git clone git://github.com/grahamb/oh-my-zsh.git ~/.oh-my-zsh@
 
 2. Create a new zsh config by copying the zsh template we've provided.
 

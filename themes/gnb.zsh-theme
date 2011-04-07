@@ -24,3 +24,6 @@ export NODE_PATH="/usr/local/lib/node"
 if [[ -f ~/.local_aliases ]]; then
 	source ~/.local_aliases
 fi
+
+# Colorize the Terminal
+export CLICOLOR=1;

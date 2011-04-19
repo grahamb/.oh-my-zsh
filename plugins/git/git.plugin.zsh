@@ -17,6 +17,7 @@ alias gcp='git cherry-pick'
 alias glg='git log --stat --max-count=5'
 alias st='git status'
 alias br='git br'
+alias gr='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s" --branches'
 
 # Git and svn mix
 alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'

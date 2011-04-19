@@ -18,3 +18,12 @@ function battery_charge {
 if [[ -f /Users/grahamb/bin/batterycharge.py ]]; then
 	RPROMPT='$(battery_charge)'
 fi
+
+alias kickstart='sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent'
+export NODE_PATH="/usr/local/lib/node"
+if [[ -f ~/.local_aliases ]]; then
+	source ~/.local_aliases
+fi
+
+# Colorize the Terminal
+export CLICOLOR=1;

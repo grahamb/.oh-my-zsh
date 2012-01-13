@@ -3,13 +3,23 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
 	hn=''
 fi
-echo $hn
-PROMPT='%{$fg_bold[yellow]%}$hn%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
-ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+function prompt_char() {
+    git branch >/dev/null 2>/dev/null && echo '±' && return
+    echo "→"
+}
+
+PROMPT='%{$fg[yellow]%}$hn%{$fg[red]%}$(prompt_char)%{$fg[green]%}%p %{$fg[cyan]%}%c %{$fg[blue]%}$(git_prompt_info)%{$fg[blue]%} % %{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="on %{$fg[magenta]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}✖%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg[yellow]%}↑"
+ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}✔%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_NO_REMOTES=" %{$fg[yellow]%}◊%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SHA_BEFORE="%{$reset_color%}("
+SHA="%{}"
+ZSH_THEME_GIT_PROMPT_SHA_AFTER=")%{$reset_color%}"
 
 function battery_charge {
     echo `~/bin/batterycharge.py` 2>/dev/null

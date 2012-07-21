@@ -4,12 +4,18 @@ else
 	hn=''
 fi
 
+if [[ $TERM = screen* ]]; then
+    screen="screen $STY "
+else
+    screen=''
+fi
+
 function prompt_char() {
     git branch >/dev/null 2>/dev/null && echo '±' && return
     echo "→"
 }
 
-PROMPT='%{$fg[yellow]%}$hn%{$fg[red]%}$(prompt_char)%{$fg[green]%}%p %{$fg[cyan]%}%c %{$fg[blue]%}$(git_prompt_info)%{$fg[blue]%} % %{$reset_color%}'
+PROMPT='%{$fg[green]%}$screen%{$fg[yellow]%}$hn%{$fg[red]%}$(prompt_char)%{$fg[green]%}%p %{$fg[cyan]%}%c %{$fg[blue]%}$(git_prompt_info)%{$fg[blue]%} % %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="on %{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "

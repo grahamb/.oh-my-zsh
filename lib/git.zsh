@@ -13,13 +13,14 @@ function parse_git_dirty () {
 }
 
 function git_ahead() {
+    currentbranch=$(git symbolic-ref -q HEAD 2> /dev/null| cut -d \/ -f3)
     remotes=$(git remote 2> /dev/null | wc -l)
     if [[ "$remotes" -eq 0 ]] ; then
         echo "$ZSH_THEME_GIT_PROMPT_NO_REMOTES"
         return
     fi
 
-    num=$(git log --oneline origin/master..HEAD 2> /dev/null| wc -l)
+    num=$(git log --oneline origin/$currentbranch..HEAD 2> /dev/null| wc -l)
     num=${num// /}
     if [[ "$num" -gt 0 ]] ; then
         echo "$ZSH_THEME_GIT_PROMPT_AHEAD$num"
